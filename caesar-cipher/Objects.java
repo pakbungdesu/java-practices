@@ -1,6 +1,6 @@
 
 
-public class Details {
+public class Objects {
   public static
     String logo = """
    ██████╗ █████╗ ███████╗███████╗ █████╗ ██████╗ 
