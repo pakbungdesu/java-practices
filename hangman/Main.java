@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-public class Main extends Details {
+public class Main extends Objects{
   static ArrayList<Integer> check_guess(char[] arr, char user_guess){
     ArrayList<Integer> indices = new ArrayList<Integer>();
     for (int i = 0; i < arr.length; i++) {
@@ -27,11 +26,12 @@ static String update_dis(char[] arr, ArrayList<Integer> all_idx){
   }
   return return_value;
 }
-  
-  public static void main(String[] args) {
-    System.out.println(logo);
 
+  public static void main(String[] args) {
+
+    System.out.println(logo);
     // declare
+    Scanner sc = new Scanner(System.in);
     String choose, new_display;
     char guess;
     int lives = 6;
@@ -50,13 +50,12 @@ static String update_dis(char[] arr, ArrayList<Integer> all_idx){
     dis_idx.add(rand_l);
     new_display = update_dis(array_l, dis_idx);
     System.out.println(new_display);
-    
+
 
     while (lives > 0){
       // make a guess
       System.out.print("\n\nYour lives: " + lives + "\nGuess a letter: ");
-      Scanner obj = new Scanner(System.in);
-      guess = obj.next().charAt(0);
+      guess = sc.next().charAt(0);
 
       // check a guess
       check_idx = check_guess(array_l, guess);
@@ -64,7 +63,7 @@ static String update_dis(char[] arr, ArrayList<Integer> all_idx){
       if (check_idx.size() != 0){
         System.out.println("You guessed " + guess + ", That's correct.");
         System.out.println(stages[lives]);
-        
+
         // add new correct item and update display
         for (int i: check_idx){
           dis_idx.add(i);
