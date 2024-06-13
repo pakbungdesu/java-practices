@@ -1,6 +1,6 @@
 
 
-public class Pic {
+public class Pics {
     public static 
         String welcome = """
     ██████╗  ██████╗  ██████╗██╗  ██╗    ██████╗  █████╗ ██████╗ ███████╗██████╗     ███████╗ ██████╗██╗███████╗███████╗ ██████╗ ██████╗ ███████╗
@@ -40,4 +40,7 @@ public class Pic {
                   (____)
             ---.__(___)
             """;
+
+    public static
+    String[] all_pics = {rock_pic, paper_pic, scissor_pic};
 }
