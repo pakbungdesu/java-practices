@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Main extends Details {
+public class Main extends Objects {
   
   static ArrayList<Integer> encode(char[] plain_txt, int shifter){
     ArrayList<Integer> en_idx = new ArrayList<Integer>();
