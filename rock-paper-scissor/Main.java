@@ -1,60 +1,43 @@
 
 import java.util.Scanner;
+import java.util.HashMap;
 import java.io.*;
 
-
-public class Main extends Pic{
+public class Main extends Pics{
   public static void main(String[] args) {
 
     // greeting
-    System.out.println(welcome + "\n");  
-    System.out.println("It's a rock-paper-scissor game!\nWIN +2\nTIED +1\nLOSE 0\n");
+    System.out.println(welcome);  
+    System.out.println("\n\nIt's a rock-paper-scissor game!\nWIN +2\nTIED +1\nLOSE 0\n");
 
-    // score
-    int user_hand;
-    int bot_hand;
-    int user_score;
-    int bot_score;
+    // declare
+    int user_hand, bot_hand, user_score, bot_score;
     int[][] score = {{1, 0, 2}, {2, 1, 0}, {0, 2, 1}};
-    int sum_user = 0;
-    int sum_bot = 0;
-
+    int sum_user = 0, sum_bot = 0, i = 1;
+    String[] hands_bot = {"rock", "paper", "scissor"};
+    HashMap<String, String> hands_user = new HashMap<String, String>();
+    hands_user.put("rock", "0");
+    hands_user.put("paper", "1");
+    hands_user.put("scissor", "2");
+    
     // continue or stop
     System.out.println("Do you want to continue or stop?");
     Scanner input = new Scanner(System.in);
     String user_con = input.nextLine();
-    int i = 1;
 
     // loop
     while(true){
       // user
       System.out.println("\nRound " + i);
       System.out.println("What do you choose?");
-      String user_choose = input.nextLine();
-
-      if ("rock".equalsIgnoreCase(user_choose)){
-        user_hand = 0;
-        System.out.println(rock_pic);
-      } else if ("paper".equalsIgnoreCase(user_choose)){
-        user_hand = 1;
-        System.out.println(paper_pic);
-      } else {
-        user_hand = 2;
-        System.out.println(scissor_pic);
-      }
+      String user_choose = (input.nextLine()).toLowerCase();
+      user_hand = Integer.parseInt(hands_user.get(user_choose));
+      System.out.println(all_pics[user_hand]);
 
       // computer
       bot_hand = (int)(Math.random() * 3);
-      if (bot_hand == 0){
-        System.out.println("Bot chose rock.");
-        System.out.println(rock_pic);
-      } else if (bot_hand == 1){
-        System.out.println("Bot chose paper.");
-        System.out.println(paper_pic);
-      } else {
-        System.out.println("Bot chose scissor.");
-        System.out.println(scissor_pic);
-      }
+      System.out.println("Bot chose " + hands_bot[bot_hand]);
+      System.out.println(all_pics[bot_hand]);
 
       // score
       user_score = score[user_hand][bot_hand];
@@ -77,10 +60,10 @@ public class Main extends Pic{
     System.out.println("Bot's total score: " + sum_bot);
     if (sum_user > sum_bot){
       System.out.println("You win! Congratulation ✨");
-    } else if (sum_user < sum_bot) {
-      System.out.println("You lost. Wanna give another try? 🔥");
-    } else {
+    } else if (sum_user == sum_bot) {
       System.out.println("It's a tied match 🥊");
+    } else {
+      System.out.println("You lost. Wanna give another try? 🔥");
     }
   }
 }
