@@ -22,10 +22,8 @@ public class Main {
     System.out.println(logo);
       
     // declare
-    String name, bit_txt, other;
-    String max_name = "";
-    int bit_int;
-    int max_bit = 0;
+    int bit_int, max_bit = 0;
+    String name, bit_txt, other, max_name = "";
     Scanner sc = new Scanner(System.in);
     HashMap<String, String> bid_info = new HashMap<String, String>();
 
