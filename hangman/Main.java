@@ -1,4 +1,6 @@
 
+
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -15,28 +17,27 @@ public class Main extends Objects{
     return indices;
   }
 
-static String update_dis(char[] arr, ArrayList<Integer> all_idx){
-  String return_value = "";
-  for (int i = 0; i < arr.length; i++){
-      if (all_idx.contains(i)) {
-        return_value += arr[i] + " ";
-    } else {
-        return_value += "_ ";
+  static String update_dis(char[] arr, ArrayList<Integer> all_idx){
+    String return_value = "";
+    for (int i = 0; i < arr.length; i++){
+        if (all_idx.contains(i)) {
+          return_value += arr[i] + " ";
+      } else {
+          return_value += "_ ";
+      }
     }
+    return return_value;
   }
-  return return_value;
-}
 
   public static void main(String[] args) {
 
     System.out.println(logo);
     // declare
-    Scanner sc = new Scanner(System.in);
-    String choose, new_display;
     char guess;
-    int lives = 6;
-    int rand_w, rand_l;
     char[] array_l;
+    int lives = 6, rand_w, rand_l;
+    Scanner sc = new Scanner(System.in);
+    String choose, display;
     ArrayList<Integer> dis_idx = new ArrayList<Integer>();
     ArrayList<Integer> check_idx = new ArrayList<Integer>();
 
@@ -48,8 +49,8 @@ static String update_dis(char[] arr, ArrayList<Integer> all_idx){
     // display
     rand_l = (int)(Math.random() * array_l.length);
     dis_idx.add(rand_l);
-    new_display = update_dis(array_l, dis_idx);
-    System.out.println(new_display);
+    display = update_dis(array_l, dis_idx);
+    System.out.println(display);
 
 
     while (lives > 0){
@@ -74,10 +75,10 @@ static String update_dis(char[] arr, ArrayList<Integer> all_idx){
         lives -= 1;
         System.out.println(stages[lives]);
       }
-      new_display = update_dis(array_l, dis_idx);
-      System.out.println(new_display);
+      display = update_dis(array_l, dis_idx);
+      System.out.println(display);
 
-      if (new_display.replaceAll(" ","").equals(choose)){
+      if (display.replaceAll(" ","").equals(choose)){
         System.out.println("You win. Congratulation ✨");
         break;
       } 
