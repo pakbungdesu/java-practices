@@ -48,10 +48,10 @@ public class Main extends Objects {
     System.out.println(logo);
     
     // declare
+    int shift;
+    char[] array_txt;
     Scanner obj = new Scanner(System.in);
     String direction, input_txt, res_txt, go_again;
-    char[] array_txt;
-    int shift;
     ArrayList<Integer> res_idx = new ArrayList<Integer>();
 
     while (true){
